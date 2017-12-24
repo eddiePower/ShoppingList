@@ -2,7 +2,7 @@
 
 namespace ShoppingList.ViewModels
 {
-    public class ItemDetailEntryViewModel
+    public class ItemDetailEntryViewModel : ObservableObject
     {
         private int itemId;
         private string itemName;

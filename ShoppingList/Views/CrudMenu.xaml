@@ -18,9 +18,9 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Grid.ColumnSpan="2" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,55,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.RowSpan="2" Name="AddNewItemButton" />
-        <Button Grid.ColumnSpan="2" Content="Edit" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,31.667,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.Row="1"/>
-        <Button Grid.ColumnSpan="2" Content="Delete" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,30.667,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.Row="2"/>
+        <Button Grid.ColumnSpan="2" Content="Add" Command="{Binding Path=AddCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,55,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.RowSpan="2" Name="AddNewItemButton" />
+        <Button Grid.ColumnSpan="2" Content="Edit" Command="{Binding Path=EditCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,31.667,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.Row="1"/>
+        <Button Grid.ColumnSpan="2" Content="Delete" Command="{Binding Path=DeleteCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,30.667,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.Row="2"/>
         <Button Grid.ColumnSpan="2" Content="Update List" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Margin="28.333,44.333,0,0" VerticalAlignment="Top" Width="97" Height="54" Grid.Row="3"/>
     </Grid>
 </UserControl>

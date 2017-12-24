@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:ShoppingList.Views"
              mc:Ignorable="d" Background="White" Height="491.376" Width="467.706">
     <Grid Name="ShoppingListItemsGrid">
-        <ListView SelectionMode="Multiple" ItemsSource="{Binding }" Margin="10,10,10,10.333">
+        <ListView SelectionMode="Multiple" Name="ItemsListView" Margin="10,10,10,10.333">
             <ListView.View>
                 <GridView AllowsColumnReorder="True">
-                    <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Item" Width="180" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Qty" Width="30" DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Header="Price" Width="55" DisplayMemberBinding="{Binding }" />
+                    <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Path=Id}" />
+                    <GridViewColumn Header="Item" Width="180" DisplayMemberBinding="{Binding Path=ItemName}" />
+                    <GridViewColumn Header="Qty" Width="30" DisplayMemberBinding="{Binding Path=ItemQty}" />
+                    <GridViewColumn Header="Price" Width="55" DisplayMemberBinding="{Binding Path=ItemPrice}" />
                 </GridView>
             </ListView.View>
         </ListView>
