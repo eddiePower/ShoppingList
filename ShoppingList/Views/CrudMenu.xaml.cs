@@ -9,12 +9,10 @@ namespace ShoppingList.Views
     /// </summary>
     public partial class CrudMenu : UserControl
     {
-        private CrudMenuViewModel menuVm = new CrudMenuViewModel();
 
         public CrudMenu()
         {
             InitializeComponent();
-            DataContext = menuVm;
         }
     }
 }

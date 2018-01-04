@@ -1,30 +1,89 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System;
+using System.Collections.ObjectModel;
+using ShoppingList.Models;
 
 namespace ShoppingList.ViewModels
 {
     public class ShoppingListViewModel : ObservableObject
-    {
-        private List<ShoppingItem> currentList;
-       
+   {
+       private ShoppingItemModel _currentItem;
+       private ObservableCollection<ShoppingItemModel> _currentList;
 
-        public ShoppingListViewModel()
+       public ShoppingListViewModel()
         {
-           currentList = new List<ShoppingItem>();
-           ShoppingItem item = new ShoppingItem();
-            item.Id = 1;
-            item.ItemName = "Milk 2L";
-            item.ItemQty = 2;
-            item.ItemPrice = 2.50;
-            MessageBox.Show("The item in shop list constructor is " + item.ToString());
-            AddItem(item);   
+            _currentList = new ObservableCollection<ShoppingItemModel>();
+            _currentItem = new ShoppingItemModel();
+
         }
 
-        public void AddItem(ShoppingItem item)
+        public string ItemName
         {
-            currentList.Add(item);
+            get { return _currentItem.ItemName; }
+            set
+            {
+                _currentItem.ItemName = value;
+                OnPropertyChanged("ItemName");
+                
+            }
         }
 
-        public List<ShoppingItem> CurrentList { get; set; }
-    }
+       public Guid Id
+       {
+           get { return _currentItem.Id; }
+       }
+
+       public bool EnableEdit
+        {
+           get { return _currentItem.EnableEdit; }
+       }
+
+       public double ItemPrice
+       {
+           get { return _currentItem.ItemPrice; }
+       }
+
+       public int ItemQty
+       {
+           get { return _currentItem.ItemQty; }
+       }
+
+        public ObservableCollection<ShoppingItemModel> AddItem(ShoppingItemModel item)
+        {
+            //wrap try catch - exception when working
+            
+            _currentList.Add(item);
+            CurrentList = _currentList;
+            return CurrentList;
+
+        }
+
+       public ObservableCollection<ShoppingItemModel> RemoveItem(ShoppingItemModel item)
+       {
+           //wrap try catch - exception when working
+           OnPropertyChanged("Remove");
+           _currentList.Remove(item);
+           CurrentList = _currentList;
+           return CurrentList;
+       }
+
+        public ShoppingItemModel CurrentItem
+        {
+            get { return _currentItem; }
+            set
+            {
+                _currentItem = value;
+                OnPropertyChanged("CurrentItem");
+            }
+        }
+
+       public ObservableCollection<ShoppingItemModel> CurrentList
+       {
+           get { return _currentList; }
+           set
+           {
+               _currentList = value;
+               OnPropertyChanged("CurrentList");
+           }
+       }
+   }
 }

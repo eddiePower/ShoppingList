@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShoppingList"
         xmlns:views="clr-namespace:ShoppingList.Views"
+        xmlns:viewModels="clr-namespace:ShoppingList.ViewModels"
         mc:Ignorable="d" Title="Shared Shopping List V1.0" Height="650" Width="925">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,7 +24,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Label FontFamily="Times new Roman" FontSize="25" FontWeight="Bold" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Content="Shared Shopping List" />
-        <views:CrudMenu Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="Auto" Height="Auto" MinHeight="435" MinWidth="300" />
-        <views:ShoppingList Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Width="Auto" Height="Auto" MinHeight="300" MinWidth="300" />
+        <views:CrudMenu Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="Auto" Height="Auto" MinHeight="435" MinWidth="300" DataContext="{Binding Path=MenuVm}" />
+        <views:ShoppingListControl Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Width="Auto" Height="Auto" MinHeight="300" MinWidth="300" DataContext="{Binding Path=ShopListVm}" />
     </Grid>
 </Window>

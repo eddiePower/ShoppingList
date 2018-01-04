@@ -1,15 +1,22 @@
-﻿<UserControl x:Class="ShoppingList.Views.ShoppingList"
+﻿<UserControl x:Class="ShoppingList.Views.ShoppingListControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ShoppingList.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" Background="White" Height="491.376" Width="467.706">
     <Grid Name="ShoppingListItemsGrid">
-        <ListView SelectionMode="Multiple" Name="ItemsListView" Margin="10,10,10,10.333">
+        <ListView SelectionMode="Multiple" Name="ItemsListView" Margin="10,10,10,10.333" ItemsSource="{Binding Path=CurrentList}">
             <ListView.View>
                 <GridView AllowsColumnReorder="True">
-                    <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Path=Id}" />
+                    <GridViewColumn Header="Guid" Width="250" DisplayMemberBinding="{Binding Path=Id}" />
+                    <GridViewColumn Header="Edit">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Name="EditCheckbox"  IsChecked="{Binding Path=EnableEdit}">
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Item" Width="180" DisplayMemberBinding="{Binding Path=ItemName}" />
                     <GridViewColumn Header="Qty" Width="30" DisplayMemberBinding="{Binding Path=ItemQty}" />
                     <GridViewColumn Header="Price" Width="55" DisplayMemberBinding="{Binding Path=ItemPrice}" />

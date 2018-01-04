@@ -16,7 +16,8 @@ namespace ShoppingList
     {
         readonly Action _execute;
         readonly Func<bool> _canExecute;
-        
+        private Action<int> editItem;
+
         /// <summary>
         /// Initializes a new instance of <see cref="RelayCommand"/>.
         /// </summary>
@@ -39,6 +40,11 @@ namespace ShoppingList
         public RelayCommand(Action execute) : this(execute, null)
         {
 
+        }
+
+        public RelayCommand(Action<int> editItem)
+        {
+            this.editItem = editItem;
         }
 
         public event EventHandler CanExecuteChanged
